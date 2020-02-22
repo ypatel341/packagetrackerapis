@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PackageTrackerDBModelStoreContainer" CdmEntityContainer="PackageTrackerDBEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+          <ScalarProperty Name="Address_Line1" ColumnName="Address_Line1" />
+          <ScalarProperty Name="Address_Line2" ColumnName="Address_Line2" />
+          <ScalarProperty Name="Address_Line3" ColumnName="Address_Line3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+          <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+          <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carriers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Carrier">
+        <MappingFragment StoreEntitySet="Carrier">
+          <ScalarProperty Name="Carrier_ID" ColumnName="Carrier_ID" />
+          <ScalarProperty Name="Carrier_Name" ColumnName="Carrier_Name" />
+          <ScalarProperty Name="Email_Suffix" ColumnName="Email_Suffix" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressFormat" ColumnName="AddressFormat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Couriers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Courier">
+        <MappingFragment StoreEntitySet="Courier">
+          <ScalarProperty Name="Courier_ID" ColumnName="Courier_ID" />
+          <ScalarProperty Name="Courier_Name" ColumnName="Courier_Name" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delivers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Deliver">
+        <MappingFragment StoreEntitySet="Deliver">
+          <ScalarProperty Name="Karyakar_ID" ColumnName="Karyakar_ID" />
+          <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+          <ScalarProperty Name="Karyakar_Name" ColumnName="Karyakar_Name" />
+          <ScalarProperty Name="Karyakar_Signature" ColumnName="Karyakar_Signature" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Recipient_Signature" ColumnName="Recipient_Signature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Department_Head" ColumnName="Department_Head" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department_Karyakar">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Department_Karyakar">
+        <MappingFragment StoreEntitySet="Department_Karyakar">
+          <ScalarProperty Name="Department_Karyakar_ID" ColumnName="Department_Karyakar_ID" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Karyakar_Name" ColumnName="Karyakar_Name" />
+          <ScalarProperty Name="Karyakar_Email" ColumnName="Karyakar_Email" />
+          <ScalarProperty Name="Karyakar_Phone_Number" ColumnName="Karyakar_Phone_Number" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Carrier_ID" ColumnName="Carrier_ID" />
+          <ScalarProperty Name="cc_Email" ColumnName="cc_Email" />
+          <ScalarProperty Name="cc_Cell" ColumnName="cc_Cell" />
+          <ScalarProperty Name="cc_Cell_Carrier_Id" ColumnName="cc_Cell_Carrier_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+          <ScalarProperty Name="Department_Karyakar_ID" ColumnName="Department_Karyakar_ID" />
+          <ScalarProperty Name="Courier_ID" ColumnName="Courier_ID" />
+          <ScalarProperty Name="Shipper_ID" ColumnName="Shipper_ID" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="Date_Received" ColumnName="Date_Received" />
+          <ScalarProperty Name="Package_Received_By" ColumnName="Package_Received_By" />
+          <ScalarProperty Name="Package_Image" ColumnName="Package_Image" />
+          <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+          <ScalarProperty Name="Image_ContentType" ColumnName="Image_ContentType" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receivers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Receiver">
+        <MappingFragment StoreEntitySet="Receiver">
+          <ScalarProperty Name="Receiver_ID" ColumnName="Receiver_ID" />
+          <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+          <ScalarProperty Name="Receiver_Name" ColumnName="Receiver_Name" />
+          <ScalarProperty Name="Receiver_Signature" ColumnName="Receiver_Signature" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shippers">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.Shipper">
+        <MappingFragment StoreEntitySet="Shipper">
+          <ScalarProperty Name="Shipper_ID" ColumnName="Shipper_ID" />
+          <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+          <ScalarProperty Name="Shipping_Company" ColumnName="Shipping_Company" />
+          <ScalarProperty Name="Shipper_Name" ColumnName="Shipper_Name" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateProvinces">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.StateProvince">
+        <MappingFragment StoreEntitySet="StateProvince">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="PackageTrackerDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="User_Departments" TypeName="PackageTrackerDBModel.User_Departments" StoreEntitySet="User_Departments">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

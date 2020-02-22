@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PackageTrackerDBModel1StoreContainer" CdmEntityContainer="PackageTrackerDBEntities1">
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="PackageTrackerDBModel1.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+          <ScalarProperty Name="Department_Karyakar_ID" ColumnName="Department_Karyakar_ID" />
+          <ScalarProperty Name="Courier_ID" ColumnName="Courier_ID" />
+          <ScalarProperty Name="Shipper_ID" ColumnName="Shipper_ID" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="Date_Received" ColumnName="Date_Received" />
+          <ScalarProperty Name="Package_Received_By" ColumnName="Package_Received_By" />
+          <ScalarProperty Name="Package_Image" ColumnName="Package_Image" />
+          <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+          <ScalarProperty Name="Image_ContentType" ColumnName="Image_ContentType" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

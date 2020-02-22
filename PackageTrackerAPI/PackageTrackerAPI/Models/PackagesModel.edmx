@@ -1,0 +1,1192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PackageTrackerDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_Line1" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Line2" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Line3" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State_ID" Type="int" />
+          <Property Name="Country_ID" Type="int" />
+          <Property Name="Zip_Code" Type="varchar" MaxLength="20" />
+          <Property Name="Create_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carrier">
+          <Key>
+            <PropertyRef Name="Carrier_ID" />
+          </Key>
+          <Property Name="Carrier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Carrier_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email_Suffix" Type="varchar" MaxLength="50" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AddressFormat" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Courier">
+          <Key>
+            <PropertyRef Name="Courier_ID" />
+          </Key>
+          <Property Name="Courier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Courier_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Create_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Deliver">
+          <Key>
+            <PropertyRef Name="Karyakar_ID" />
+            <PropertyRef Name="Package_ID" />
+          </Key>
+          <Property Name="Karyakar_ID" Type="int" Nullable="false" />
+          <Property Name="Package_ID" Type="int" Nullable="false" />
+          <Property Name="Karyakar_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Karyakar_Signature" Type="varchar" MaxLength="2000" />
+          <Property Name="Delivery_Date" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Recipient_Signature" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Department_Head" Type="varchar" MaxLength="50" />
+          <Property Name="Create_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Department_Karyakar">
+          <Key>
+            <PropertyRef Name="Department_Karyakar_ID" />
+          </Key>
+          <Property Name="Department_Karyakar_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department_ID" Type="int" Nullable="false" />
+          <Property Name="Karyakar_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Karyakar_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Karyakar_Phone_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Create_User" Type="int" />
+          <Property Name="Carrier_ID" Type="int" />
+          <Property Name="cc_Email" Type="varchar" MaxLength="1000" />
+          <Property Name="cc_Cell" Type="varchar" MaxLength="1000" />
+          <Property Name="cc_Cell_Carrier_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="Package_ID" />
+          </Key>
+          <Property Name="Package_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department_Karyakar_ID" Type="int" Nullable="false" />
+          <Property Name="Courier_ID" Type="int" Nullable="false" />
+          <Property Name="Shipper_ID" Type="int" Nullable="false" />
+          <Property Name="BarCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_Received" Type="datetime" />
+          <Property Name="Package_Received_By" Type="varchar" MaxLength="50" />
+          <Property Name="Package_Image" Type="varbinary(max)" />
+          <Property Name="Image_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Image_ContentType" Type="varchar" MaxLength="255" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receiver">
+          <Key>
+            <PropertyRef Name="Receiver_ID" />
+          </Key>
+          <Property Name="Receiver_ID" Type="int" Nullable="false" />
+          <Property Name="Package_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Receiver_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Receiver_Signature" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Shipper">
+          <Key>
+            <PropertyRef Name="Shipper_ID" />
+          </Key>
+          <Property Name="Shipper_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_ID" Type="int" Nullable="false" />
+          <Property Name="Shipping_Company" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Shipper_Name" Type="varchar" MaxLength="80" />
+          <Property Name="Create_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StateProvince">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="100" />
+          <Property Name="Published" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_Departments">
+          <Key>
+            <PropertyRef Name="User_ID" />
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Department_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="User_Email" Type="varchar" MaxLength="50" />
+          <Property Name="First_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Create_User" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Update_User" Type="int" />
+        </EntityType>
+        <Association Name="FK_Address_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_StateProvince">
+          <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateProvince">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="State_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliver_Department_Karyakar">
+          <End Role="Department_Karyakar" Type="Self.Department_Karyakar" Multiplicity="1" />
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department_Karyakar">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Principal>
+            <Dependent Role="Deliver">
+              <PropertyRef Name="Karyakar_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliver_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Package_ID" />
+            </Principal>
+            <Dependent Role="Deliver">
+              <PropertyRef Name="Package_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Courier">
+          <End Role="Courier" Type="Self.Courier" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courier">
+              <PropertyRef Name="Courier_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Courier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Department_Karyakar">
+          <End Role="Department_Karyakar" Type="Self.Department_Karyakar" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department_Karyakar">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Shipper">
+          <End Role="Shipper" Type="Self.Shipper" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipper">
+              <PropertyRef Name="Shipper_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Shipper_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receiver_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="Receiver" Type="Self.Receiver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Package_ID" />
+            </Principal>
+            <Dependent Role="Receiver">
+              <PropertyRef Name="Package_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shipper_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Shipper" Type="Self.Shipper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="Shipper">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Departments_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="User_Departments" Type="Self.User_Departments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="User_Departments">
+              <PropertyRef Name="Department_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Departments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="User_Departments" Type="Self.User_Departments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="User_Departments">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PackageTrackerDBModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carrier" EntityType="Self.Carrier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courier" EntityType="Self.Courier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deliver" EntityType="Self.Deliver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department_Karyakar" EntityType="Self.Department_Karyakar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receiver" EntityType="Self.Receiver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shipper" EntityType="Self.Shipper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateProvince" EntityType="Self.StateProvince" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Departments" EntityType="Self.User_Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Countries" Association="Self.FK_Address_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_StateProvince" Association="Self.FK_Address_StateProvince">
+            <End Role="StateProvince" EntitySet="StateProvince" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliver_Department_Karyakar" Association="Self.FK_Deliver_Department_Karyakar">
+            <End Role="Department_Karyakar" EntitySet="Department_Karyakar" />
+            <End Role="Deliver" EntitySet="Deliver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliver_Package" Association="Self.FK_Deliver_Package">
+            <End Role="Package" EntitySet="Package" />
+            <End Role="Deliver" EntitySet="Deliver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Courier" Association="Self.FK_Package_Courier">
+            <End Role="Courier" EntitySet="Courier" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Department_Karyakar" Association="Self.FK_Package_Department_Karyakar">
+            <End Role="Department_Karyakar" EntitySet="Department_Karyakar" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Shipper" Association="Self.FK_Package_Shipper">
+            <End Role="Shipper" EntitySet="Shipper" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receiver_Package" Association="Self.FK_Receiver_Package">
+            <End Role="Package" EntitySet="Package" />
+            <End Role="Receiver" EntitySet="Receiver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shipper_Address" Association="Self.FK_Shipper_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Shipper" EntitySet="Shipper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Departments_Department" Association="Self.FK_User_Departments_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="User_Departments" EntitySet="User_Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Departments_Users" Association="Self.FK_User_Departments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="User_Departments" EntitySet="User_Departments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PackageTrackerDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_Line1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Line2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Line3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State_ID" Type="Int32" />
+          <Property Name="Country_ID" Type="Int32" />
+          <Property Name="Zip_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Address_Countries" FromRole="Address" ToRole="Countries" />
+          <NavigationProperty Name="StateProvince" Relationship="Self.FK_Address_StateProvince" FromRole="Address" ToRole="StateProvince" />
+          <NavigationProperty Name="Shippers" Relationship="Self.FK_Shipper_Address" FromRole="Address" ToRole="Shipper" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Carrier">
+          <Key>
+            <PropertyRef Name="Carrier_ID" />
+          </Key>
+          <Property Name="Carrier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Carrier_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressFormat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Countries" FromRole="Countries" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Courier">
+          <Key>
+            <PropertyRef Name="Courier_ID" />
+          </Key>
+          <Property Name="Courier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Courier_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Package_Courier" FromRole="Courier" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Deliver">
+          <Key>
+            <PropertyRef Name="Karyakar_ID" />
+            <PropertyRef Name="Package_ID" />
+          </Key>
+          <Property Name="Karyakar_ID" Type="Int32" Nullable="false" />
+          <Property Name="Package_ID" Type="Int32" Nullable="false" />
+          <Property Name="Karyakar_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Karyakar_Signature" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Delivery_Date" Type="DateTime" Precision="3" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Recipient_Signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Department_Karyakar" Relationship="Self.FK_Deliver_Department_Karyakar" FromRole="Deliver" ToRole="Department_Karyakar" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_Deliver_Package" FromRole="Deliver" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department_Head" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="Self.User_Departments" FromRole="Department" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Department_Karyakar">
+          <Key>
+            <PropertyRef Name="Department_Karyakar_ID" />
+          </Key>
+          <Property Name="Department_Karyakar_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department_ID" Type="Int32" Nullable="false" />
+          <Property Name="Karyakar_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Karyakar_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Karyakar_Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Create_User" Type="Int32" />
+          <Property Name="Carrier_ID" Type="Int32" />
+          <Property Name="cc_Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cc_Cell" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="cc_Cell_Carrier_Id" Type="Int32" />
+          <NavigationProperty Name="Delivers" Relationship="Self.FK_Deliver_Department_Karyakar" FromRole="Department_Karyakar" ToRole="Deliver" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Package_Department_Karyakar" FromRole="Department_Karyakar" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="Package_ID" />
+          </Key>
+          <Property Name="Package_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department_Karyakar_ID" Type="Int32" Nullable="false" />
+          <Property Name="Courier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Shipper_ID" Type="Int32" Nullable="false" />
+          <Property Name="BarCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_Received" Type="DateTime" Precision="3" />
+          <Property Name="Package_Received_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Package_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image_ContentType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Courier" Relationship="Self.FK_Package_Courier" FromRole="Package" ToRole="Courier" />
+          <NavigationProperty Name="Delivers" Relationship="Self.FK_Deliver_Package" FromRole="Package" ToRole="Deliver" />
+          <NavigationProperty Name="Department_Karyakar" Relationship="Self.FK_Package_Department_Karyakar" FromRole="Package" ToRole="Department_Karyakar" />
+          <NavigationProperty Name="Shipper" Relationship="Self.FK_Package_Shipper" FromRole="Package" ToRole="Shipper" />
+          <NavigationProperty Name="Receivers" Relationship="Self.FK_Receiver_Package" FromRole="Package" ToRole="Receiver" />
+        </EntityType>
+        <EntityType Name="Receiver">
+          <Key>
+            <PropertyRef Name="Receiver_ID" />
+          </Key>
+          <Property Name="Receiver_ID" Type="Int32" Nullable="false" />
+          <Property Name="Package_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Receiver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Receiver_Signature" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_Receiver_Package" FromRole="Receiver" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="Shipper">
+          <Key>
+            <PropertyRef Name="Shipper_ID" />
+          </Key>
+          <Property Name="Shipper_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_ID" Type="Int32" Nullable="false" />
+          <Property Name="Shipping_Company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shipper_Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_Shipper_Address" FromRole="Shipper" ToRole="Address" />
+          <NavigationProperty Name="Packages" Relationship="Self.FK_Package_Shipper" FromRole="Shipper" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="StateProvince">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_StateProvince" FromRole="StateProvince" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Create_User" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_User" Type="Int32" />
+          <NavigationProperty Name="Departments" Relationship="Self.User_Departments" FromRole="Users" ToRole="Department" />
+        </EntityType>
+        <Association Name="FK_Address_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_StateProvince">
+          <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateProvince">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="State_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shipper_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Shipper" Type="Self.Shipper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="Shipper">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Courier">
+          <End Role="Courier" Type="Self.Courier" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courier">
+              <PropertyRef Name="Courier_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Courier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliver_Department_Karyakar">
+          <End Role="Department_Karyakar" Type="Self.Department_Karyakar" Multiplicity="1" />
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department_Karyakar">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Principal>
+            <Dependent Role="Deliver">
+              <PropertyRef Name="Karyakar_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliver_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Package_ID" />
+            </Principal>
+            <Dependent Role="Deliver">
+              <PropertyRef Name="Package_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Department_Karyakar">
+          <End Role="Department_Karyakar" Type="Self.Department_Karyakar" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department_Karyakar">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Department_Karyakar_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Package_Shipper">
+          <End Role="Shipper" Type="Self.Shipper" Multiplicity="1" />
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipper">
+              <PropertyRef Name="Shipper_ID" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Shipper_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receiver_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="Receiver" Type="Self.Receiver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="Package_ID" />
+            </Principal>
+            <Dependent Role="Receiver">
+              <PropertyRef Name="Package_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <Association Name="User_Departments">
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PackageTrackerDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Carriers" EntityType="Self.Carrier" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Couriers" EntityType="Self.Courier" />
+          <EntitySet Name="Delivers" EntityType="Self.Deliver" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Department_Karyakar" EntityType="Self.Department_Karyakar" />
+          <EntitySet Name="Packages" EntityType="Self.Package" />
+          <EntitySet Name="Receivers" EntityType="Self.Receiver" />
+          <EntitySet Name="Shippers" EntityType="Self.Shipper" />
+          <EntitySet Name="StateProvinces" EntityType="Self.StateProvince" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Address_Countries" Association="Self.FK_Address_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_StateProvince" Association="Self.FK_Address_StateProvince">
+            <End Role="StateProvince" EntitySet="StateProvinces" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shipper_Address" Association="Self.FK_Shipper_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Shipper" EntitySet="Shippers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Courier" Association="Self.FK_Package_Courier">
+            <End Role="Courier" EntitySet="Couriers" />
+            <End Role="Package" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliver_Department_Karyakar" Association="Self.FK_Deliver_Department_Karyakar">
+            <End Role="Department_Karyakar" EntitySet="Department_Karyakar" />
+            <End Role="Deliver" EntitySet="Delivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliver_Package" Association="Self.FK_Deliver_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Deliver" EntitySet="Delivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Department_Karyakar" Association="Self.FK_Package_Department_Karyakar">
+            <End Role="Department_Karyakar" EntitySet="Department_Karyakar" />
+            <End Role="Package" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Package_Shipper" Association="Self.FK_Package_Shipper">
+            <End Role="Shipper" EntitySet="Shippers" />
+            <End Role="Package" EntitySet="Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receiver_Package" Association="Self.FK_Receiver_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="Receiver" EntitySet="Receivers" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="User_Departments" Association="Self.User_Departments">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PackageTrackerDBModelStoreContainer" CdmEntityContainer="PackageTrackerDBEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Address_Line1" ColumnName="Address_Line1" />
+                <ScalarProperty Name="Address_Line2" ColumnName="Address_Line2" />
+                <ScalarProperty Name="Address_Line3" ColumnName="Address_Line3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carriers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Carrier">
+              <MappingFragment StoreEntitySet="Carrier">
+                <ScalarProperty Name="Carrier_ID" ColumnName="Carrier_ID" />
+                <ScalarProperty Name="Carrier_Name" ColumnName="Carrier_Name" />
+                <ScalarProperty Name="Email_Suffix" ColumnName="Email_Suffix" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AddressFormat" ColumnName="AddressFormat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Couriers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Courier">
+              <MappingFragment StoreEntitySet="Courier">
+                <ScalarProperty Name="Courier_ID" ColumnName="Courier_ID" />
+                <ScalarProperty Name="Courier_Name" ColumnName="Courier_Name" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Delivers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Deliver">
+              <MappingFragment StoreEntitySet="Deliver">
+                <ScalarProperty Name="Karyakar_ID" ColumnName="Karyakar_ID" />
+                <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+                <ScalarProperty Name="Karyakar_Name" ColumnName="Karyakar_Name" />
+                <ScalarProperty Name="Karyakar_Signature" ColumnName="Karyakar_Signature" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Recipient_Signature" ColumnName="Recipient_Signature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Department_Head" ColumnName="Department_Head" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department_Karyakar">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Department_Karyakar">
+              <MappingFragment StoreEntitySet="Department_Karyakar">
+                <ScalarProperty Name="Department_Karyakar_ID" ColumnName="Department_Karyakar_ID" />
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="Karyakar_Name" ColumnName="Karyakar_Name" />
+                <ScalarProperty Name="Karyakar_Email" ColumnName="Karyakar_Email" />
+                <ScalarProperty Name="Karyakar_Phone_Number" ColumnName="Karyakar_Phone_Number" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Carrier_ID" ColumnName="Carrier_ID" />
+                <ScalarProperty Name="cc_Email" ColumnName="cc_Email" />
+                <ScalarProperty Name="cc_Cell" ColumnName="cc_Cell" />
+                <ScalarProperty Name="cc_Cell_Carrier_Id" ColumnName="cc_Cell_Carrier_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+                <ScalarProperty Name="Department_Karyakar_ID" ColumnName="Department_Karyakar_ID" />
+                <ScalarProperty Name="Courier_ID" ColumnName="Courier_ID" />
+                <ScalarProperty Name="Shipper_ID" ColumnName="Shipper_ID" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="Date_Received" ColumnName="Date_Received" />
+                <ScalarProperty Name="Package_Received_By" ColumnName="Package_Received_By" />
+                <ScalarProperty Name="Package_Image" ColumnName="Package_Image" />
+                <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+                <ScalarProperty Name="Image_ContentType" ColumnName="Image_ContentType" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receivers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Receiver">
+              <MappingFragment StoreEntitySet="Receiver">
+                <ScalarProperty Name="Receiver_ID" ColumnName="Receiver_ID" />
+                <ScalarProperty Name="Package_ID" ColumnName="Package_ID" />
+                <ScalarProperty Name="Receiver_Name" ColumnName="Receiver_Name" />
+                <ScalarProperty Name="Receiver_Signature" ColumnName="Receiver_Signature" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shippers">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.Shipper">
+              <MappingFragment StoreEntitySet="Shipper">
+                <ScalarProperty Name="Shipper_ID" ColumnName="Shipper_ID" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Shipping_Company" ColumnName="Shipping_Company" />
+                <ScalarProperty Name="Shipper_Name" ColumnName="Shipper_Name" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateProvinces">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.StateProvince">
+              <MappingFragment StoreEntitySet="StateProvince">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PackageTrackerDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="PackageTrackerDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="User_Departments" TypeName="PackageTrackerDBModel.User_Departments" StoreEntitySet="User_Departments">
+            <EndProperty Name="Department">
+              <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

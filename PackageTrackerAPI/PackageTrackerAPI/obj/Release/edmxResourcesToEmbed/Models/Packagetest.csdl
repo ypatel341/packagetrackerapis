@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PackageTrackerDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Package_ID" />
+    </Key>
+    <Property Name="Package_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department_Karyakar_ID" Type="Int32" Nullable="false" />
+    <Property Name="Courier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Shipper_ID" Type="Int32" Nullable="false" />
+    <Property Name="BarCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_Received" Type="DateTime" Precision="3" />
+    <Property Name="Package_Received_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Package_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Image_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image_ContentType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="PackageTrackerDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Packages" EntityType="Self.Package" />
+  </EntityContainer>
+</Schema>

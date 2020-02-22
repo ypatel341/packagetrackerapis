@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7cabcddacca451ca2639d9f6078e1e1" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Address" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.AspNetRole" Width="1.5" PointX="5.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.AspNetUser" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Carrier" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Country" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Courier" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Deliver" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Department" Width="1.5" PointX="10.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Department_Karyakar" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Package" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Receiver" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.Shipper" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.StateProvince" Width="1.5" PointX="1.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.sysdiagram" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PackageTrackerDBModel.User" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Address_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Address_StateProvince" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Shipper_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Package_Courier" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Deliver_Department_Karyakar" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Deliver_Package" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Package_Department_Karyakar" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Package_Shipper" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.FK_Receiver_Package" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="PackageTrackerDBModel.User_Departments" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
